@@ -1,5 +1,5 @@
 {
-  "name": "APP_NAME",
+  "name": "localdrive",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -11,6 +11,7 @@
     "angular": "~1.2.16",
     "angular-route": "~1.2.16",
     "less": "~1.7.0",
-    "almond": "~0.2.9"
+    "almond": "~0.2.9",
+    "localforage": "~0.8.1"
   }
 }

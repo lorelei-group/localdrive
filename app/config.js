@@ -8,6 +8,7 @@ requirejs.config({
     // vendors
     'angular-core': 'bower_components/angular/angular',
     'angular': 'bower_components/angular-route/angular-route',
+    'localforage': 'bower_components/localforage/dist/localforage',
 
     // aliases
     'app-module': 'app/angular-module',
@@ -17,7 +18,10 @@ requirejs.config({
     'angular': {
       deps: [ 'angular-core' ],
       exports: 'angular',
-    }
+    },
+    'localforage': {
+      exports: 'localforage',
+    },
   }
 
 })([ 'app/app' ]);

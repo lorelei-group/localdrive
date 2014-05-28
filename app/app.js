@@ -1,22 +1,21 @@
 define(function(require) {
   'use strict';
   require('app-module');
-  require('comp/MODULE_NAME/MODULE_NAME');
+  require('comp/main/main');
 
-  var SOME_TOOL = require('tools/SOME_TOOL');
   var angular = require('angular');
-  angular.module('APP_NAME')
+  angular.module('localdrive')
 
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'comp/MODULE_NAME/MODULE_NAME.html',
-        controller: 'MODULE_NAMECtrl'
+        templateUrl: 'comp/main/main.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
 
-  angular.bootstrap(document, [ 'APP_NAME' ]);
+  angular.bootstrap(document, [ 'localdrive' ]);
 });

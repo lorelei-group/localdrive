@@ -1,0 +1,16 @@
+<input type="text" ng-model="name">
+<button
+  multiple
+  mq-file-selector
+  mq-file-select="upload($files)">
+  Upload
+</button>
+
+<ul>
+  <li ng-repeat="file in files">
+    <button ng-click="remove(file)">DELETE</button>
+    <span ng-click="select(file)">{{ file.name }}</span>
+  </li>
+</ul>
+
+<img>
