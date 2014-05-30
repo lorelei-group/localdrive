@@ -35,10 +35,14 @@ define(function(require) {
     getList().catch(onError);
 
     function save(files) {
-      fs.set({ path: $scope.name }, files[0])
+      files = Array.prototype.slice.call(files);
+      var promises = files.map(function(file) {
+        return fs.set({ path: file.name }, file);
+      });
+
+      Promise.all(promises)
         .then(getList)
         .catch(onError);
-      $scope.name = '';
     }
 
     function remove(file) {

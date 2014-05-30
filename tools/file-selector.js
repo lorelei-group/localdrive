@@ -16,7 +16,7 @@ define(function(require) {
           var input = document.createElement('input');
           input.setAttribute('type', 'file');
 
-          if (attr.multiple)
+          if ('multiple' in attr)
             input.setAttribute('multiple', true);
 
           input.click();
