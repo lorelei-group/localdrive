@@ -3,6 +3,7 @@ define(function(require) {
   require('app-module');
   require('comp/main/main');
 
+
   var angular = require('angular');
   angular.module('localdrive')
 
@@ -15,6 +16,19 @@ define(function(require) {
       .otherwise({
         redirectTo: '/'
       });
+  })
+
+  .run(function($rootScope) {
+    var originalThen = Promise.prototype.then;
+    Promise.prototype.then = function(success, error) {
+      function wrapper(value) {
+        var result;
+        $rootScope.$apply(function() { result = success(value) });
+        return result;
+      }
+
+      return originalThen.call(this, success && wrapper, error);
+    };
   });
 
   angular.bootstrap(document, [ 'localdrive' ]);

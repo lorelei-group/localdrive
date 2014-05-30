@@ -2,15 +2,19 @@
 <button
   multiple
   mq-file-selector
-  mq-file-select="upload($files)">
+  mq-file-select="save($files)">
   Upload
 </button>
 
 <ul>
   <li ng-repeat="file in files">
     <button ng-click="remove(file)">DELETE</button>
-    <span ng-click="select(file)">{{ file.name }}</span>
+    <span ng-click="select(file)">{{ file.path }}</span>
   </li>
 </ul>
 
-<img>
+<div ng-show="preview">
+  <img ng-show="preview === 'image'">
+  <audio controls ng-show="preview === 'audio'"></audio>
+  <video controls ng-show="preview === 'video'"></video>
+</div>
