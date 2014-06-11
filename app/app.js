@@ -22,6 +22,10 @@ define(function(require) {
     var originalThen = Promise.prototype.then;
     Promise.prototype.then = function(success, error) {
       function wrapper(value) {
+        var phase = $rootScope.$$phase;
+        if (phase === '$apply' || phase === '$digest')
+          return success(value);
+
         var result;
         $rootScope.$apply(function() { result = success(value) });
         return result;

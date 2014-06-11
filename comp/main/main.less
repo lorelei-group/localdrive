@@ -21,11 +21,17 @@ ul {
 aside {
   flex: 1;
   min-width: 200px;
-  align-items: stretch;
+  align-items: center;
   border-left: 1px solid #777;
 
-  [role=button] {
-    margin: 2px;
+  .upload {
+    display: flex;
+    align-self: stretch;
+
+    button {
+      flex: 1;
+      margin: 2px;
+    }
   }
 
   .preview {

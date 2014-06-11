@@ -1,17 +1,17 @@
 <ul>
-  <li ng-repeat="file in files">
+  <li ng-repeat="file in files | orderBy:'name':false">
     <button ng-click="remove(file)">X</button>
-    <span ng-click="select(file)">{{ file.path }}</span>
+    <span ng-click="select(file)">[{{ file.size | bytes }}] {{ file.path }}</span>
   </li>
 </ul>
 
 <aside>
-  <a role="button"
-    multiple
-    mq-file-selector
-    mq-file-select="save($files)">
-    +
-  </a>
+  <div class="upload">
+    <button mq-file-selector directory
+      mq-file-select="save($files)">Folder</button>
+    <button mq-file-selector multiple
+      mq-file-select="save($files)">Files</button>
+  </div>
 
   <img class="preview" ng-show="preview === 'image'">
   <audio controls class="preview" ng-show="preview === 'audio'"></audio>

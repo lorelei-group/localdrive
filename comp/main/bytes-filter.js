@@ -15,7 +15,8 @@ define(function(require) {
         magnitude++;
       }
 
-      return value + magnitudes[magnitude];
+      value = Math.round(value * 100) / 100;
+      return value + ' ' + magnitudes[magnitude];
     };
   });
 });

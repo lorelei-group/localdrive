@@ -19,6 +19,12 @@ define(function(require) {
           if ('multiple' in attr)
             input.setAttribute('multiple', true);
 
+          if ('directory' in attr) {
+            input.setAttribute('directory', true);
+            input.setAttribute('mozdirectory', true);
+            input.setAttribute('webkitdirectory', true);
+          }
+
           input.click();
           input.addEventListener('change', function() {
             scope.mqFileSelect({ $files: input.files });
